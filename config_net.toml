@@ -1,0 +1,56 @@
+[config_description]
+
+desc = "config_8. k_ratio = 0.1"
+
+[critic_net]
+
+hist_past_act = false
+
+[critic_net.memory_net]
+input_emb_act = [128]
+input_emb_obs = [128]
+pre_rnn_hid_sizes = []
+rnn_hid_sizes = [128]
+post_rnn_hid_sizes = []
+
+[critic_net.features_net]
+input_emb_act = [128]
+input_emb_obs = [128]
+fet_ext_hid_sizes = [128]
+
+[critic_net.combination_net]
+comb_net_hid_sizes = [128]
+
+[actor_net]
+
+hist_past_act = false
+
+[actor_net.memory_net]
+input_emb_act = [128]
+input_emb_obs = [128]
+pre_rnn_hid_sizes = []
+rnn_hid_sizes = [128]
+post_rnn_hid_sizes = []
+
+[actor_net.features_net]
+fet_ext_hid_sizes = [128]
+
+[actor_net.combination_net]
+comb_net_hid_sizes = [128]
+
+[hyper_parameters]
+
+knn_ratio = 0.1
+std_dev_actor = 0.1
+std_dev_actor_target = 0.2
+replay_buffer_capacity = 1000000
+steps_per_episodes = 1000
+buffer_length = 5
+policy_delay = 2
+discount_factor = 0.99
+target_update_rate = 0.005
+batch_sizes = 100
+history_length = 5
+clip_noise = 0.5
+learning_rate_critic = 1e-3
+learning_rate_actor = 1e-3
