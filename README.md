@@ -1,7 +1,7 @@
 # Deep_Learning_Project  
 # LSTM-TD3 with Wolpertinger policy for discrete action spaces
 
-Proposed implementation of LSTm-TD3 adding also Wolpertinger policy. 
+Proposed implementation of LSTm-TD3 adding also Wolpertinger policy, in order to work with both continuous and discrete action space.  
 Implementation done using Tensorflow 2.8.0.
 
 ## Project Reference
