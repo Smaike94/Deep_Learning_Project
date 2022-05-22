@@ -16,7 +16,7 @@ def get_configuration(environment_name, pomdp_type, config_filename):
         with open(dir_checkpoints + 'used_configurations.toml', 'r') as f:
             used_configurations = toml.load(f)
     except FileNotFoundError:
-        os.makedirs(dir_checkpoints, exist_ok=False)
+        os.makedirs(dir_checkpoints, exist_ok=True)
         used_configurations = {}
 
     new_configuration = False
@@ -35,12 +35,13 @@ def get_configuration(environment_name, pomdp_type, config_filename):
         dir_checkpoints += "run_config_" + str(num_config) + "/"
 
     if new_configuration:
+        os.makedirs(dir_checkpoints, exist_ok=True)
         with open(dir_checkpoints + '../used_configurations.toml', 'w') as f:
             toml.dump(used_configurations, f)
 
-        os.makedirs(dir_checkpoints, exist_ok=False)
+        
 
-        with open(dir_checkpoints + 'config_' + str(num_config) + ".toml", 'w') as f:
-            toml.dump(actual_config, f)
+#         with open(dir_checkpoints + 'config_' + str(num_config) + ".toml", 'w') as f:
+#             toml.dump(actual_config, f)
 
     return actual_config, dir_checkpoints
