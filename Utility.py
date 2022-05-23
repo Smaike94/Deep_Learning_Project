@@ -36,12 +36,11 @@ def get_configuration(environment_name, pomdp_type, config_filename):
 
     if new_configuration:
         os.makedirs(dir_checkpoints, exist_ok=True)
+        
         with open(dir_checkpoints + '../used_configurations.toml', 'w') as f:
             toml.dump(used_configurations, f)
 
-        
-
-#         with open(dir_checkpoints + 'config_' + str(num_config) + ".toml", 'w') as f:
-#             toml.dump(actual_config, f)
+        with open(dir_checkpoints + 'config_' + str(num_config) + ".toml", 'w') as f:
+            toml.dump(actual_config, f)
 
     return actual_config, dir_checkpoints
